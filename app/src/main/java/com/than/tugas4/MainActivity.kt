@@ -38,6 +38,23 @@ class MainActivity : AppCompatActivity(), MainView {
             .setNegativeButton("Close"){dialog, _ ->
                 dialog.dismiss()
             }
+            .setNeutralButton("Hapus Data"){dialog, _ ->
+                //confirm
+                AlertDialog.Builder(this)
+                    .setPositiveButton("Iya"){dialog, _ ->
+                        presenterImp.clearHasil()
+                        dialog.dismiss()
+                    }
+                    .setNegativeButton("Tidak"){dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .setTitle("Konfirmasi")
+                    .setMessage("Yakin ingin Hapus Riwayat?")
+                    .create()
+                    .show()
+
+                dialog.dismiss()
+            }
             .setTitle("History")
             .setMessage(data)
             .create()

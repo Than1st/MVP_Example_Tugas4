@@ -17,6 +17,15 @@ class MainPresenterImp(private val view: MainView): MainPresenter {
         }
     }
 
+    override fun clearHasil() {
+        if(HASIL.size != 0){
+            HASIL.clear()
+            view.showMessage("Berhasil Dihapus")
+        } else {
+            view.showMessage("Data Emang Kosong Goblog!!!")
+        }
+    }
+
 
     override fun loadHasil() {
         if(HASIL.size == 0){
